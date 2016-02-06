@@ -6,3 +6,5 @@ docs/out
 .publish
 /dist
 nbproject
+.settings
+.project
