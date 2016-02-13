@@ -28,7 +28,7 @@
  
   //If the query was executed successfully, create a JSON string containing the marker information
   if($dbresult){
-    $result = "{'success':true, 'markers':" . json_encode($markers) . "}";        
+  	$result = array('success'=>true, 'markers'=> ($markers));        
   }
   else
   {
@@ -39,8 +39,10 @@
   header('Access-Control-Allow-Origin: *');
   header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
   header('Access-Control-Allow-Headers: Content-Type,x-prototype-version,x-requested-with');
- 
+  header('Content-Type: application/json');
+  
   //Output the result to the browser so that our Ionic application can see the data
-  echo($result);
+  echo json_encode(($result));
+  
  
 ?>
